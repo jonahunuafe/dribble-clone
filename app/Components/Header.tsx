@@ -6,7 +6,9 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
 function Header() {
   return (
     <nav className='flex justify-center items-center'>
-        
+        <LogoSection />
+        <SearchBar />
+        <Button />
     </nav>
   )
 }
@@ -48,7 +50,12 @@ function SearchBar() {
 }
 
 function Button() {
-
+    return (
+        <button className='bg-purple-600 gap-1 p-[12px] flex text-sm rounded-md text-white items-center justify-center pr-[18px] hover:bg-purple-700'>
+            <AddOutlinedIcon sx={{ fontSize: "20px" }} />
+            <span className=''>New Expense</span>
+        </button>
+    )
 }
 
 
