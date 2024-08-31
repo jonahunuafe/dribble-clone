@@ -4,7 +4,8 @@ import HomeOutlinedIcon  from "@mui/icons-material/HomeMaxOutlined";
 function SubHeader() {
     return (
         <div className='mt-[90px] flex justify-between'>
-
+            <WalletOptions />
+            <ClearAllBtn />
         </div>
     )
 }
