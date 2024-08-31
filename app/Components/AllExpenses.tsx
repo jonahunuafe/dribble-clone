@@ -1,7 +1,14 @@
+import Image from "next/image";
+
+import KeyboardArrowDownOutlined from "@mui/icons-material/KeyboardArrowDownOutlined";
+
+
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ReceiptLongOutlinedIcon  from "@mui/icons-material/ReceiptLongOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import SingleExpense from "./SingleExpense";
 
 
 export function AllExpenses() {
@@ -36,7 +43,7 @@ function ListHeader() {
 function ExpensesList() {
     return (
         <div className="flex pt-1 mt-4 items-center flex-col gap-5 h-[400px] overflow-y-auto">
-            
+            <SingleExpense />
         </div>
     )
 }
