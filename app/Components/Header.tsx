@@ -15,7 +15,7 @@ function Header() {
 
 function LogoSection() {
     return (
-        <div className='flex gap-2 items-center'>
+        <div className='flex gap-2 items-center max-sm:hidden'>
             <div className='bg-purple-600 flex items-center justify-center p-[11px] rounded-lg'>
                 <div className='w-[26px] h-[26px] flex items-center justify-center'>
                     <SavingsOutlinedIcon 
@@ -37,7 +37,7 @@ function LogoSection() {
 
 function SearchBar() {
     return (
-        <div className='h-[46px] bg-slate-50 flex items-center text-sm rounded-md pl-3 gap-1 w-[300px]'>
+        <div className='h-[46px] bg-slate-50 flex items-center text-sm rounded-md pl-3 gap-1 w-[300px] max-sm:w-[220px]'>
             <div>
                 <SearchOutlinedIcon className='text-slate-400'/>
             </div>
@@ -51,9 +51,9 @@ function SearchBar() {
 
 function Button() {
     return (
-        <button className='bg-purple-600 gap-1 p-[12px] flex text-sm rounded-md text-white items-center justify-center pr-[18px] hover:bg-purple-700'>
+        <button className='bg-purple-600 gap-1 p-[12px] flex text-sm rounded-md text-white items-center justify-center pr-[18px] max-sm:pr-3 hover:bg-purple-700'>
             <AddOutlinedIcon sx={{ fontSize: "20px" }} />
-            <span className=''>New Expense</span>
+            <span className='max-sm:hidden'>New Expense</span>
         </button>
     )
 }
