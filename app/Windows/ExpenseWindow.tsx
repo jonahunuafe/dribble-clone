@@ -114,12 +114,12 @@ function Footer() {
         <div className="w-full p-[12px] mt-8 mb-4 flex gap-3 justify-end px-7 items-center">
             <button
                 onClick={() => setOPenExpenseWindow(false)} 
-                className="border border-slate-200 text-slate-400 text-[13px] p-2 px-6 rounded-md"
+                className="border border-slate-200 text-slate-400 text-[13px] p-2 px-6 rounded-md hover:border-slate-300 transition-all"
             >
                 Cancel
             </button>
 
-            <button className="bg-purple-600 hover:bg-purple-700 text-white text-[13px p-2 px-3]">
+            <button className="bg-purple-600 hover:bg-purple-700 text-white text-[13px] p-2 px-3 rounded-md transition-all">
                 Add Expense
             </button>
         </div>
