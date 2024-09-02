@@ -2,6 +2,7 @@ import React from 'react'
 import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined'
 import SearchOutlinedIcon  from '@mui/icons-material/SearchOutlined'
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
+import { useAppContext } from '../AppContext'
 
 function Header() {
   return (
@@ -50,8 +51,13 @@ function SearchBar() {
 }
 
 function Button() {
+    const { openExpenseWindowObject: { setOpenExpenseWindow }, } = useAppContext();
     return (
-        <button className='bg-purple-600 gap-1 p-[12px] flex text-sm rounded-md text-white items-center justify-center pr-[18px] max-sm:pr-3 hover:bg-purple-700'>
+        <button 
+            onClick={() => setOpenExpenseWindow(true)}
+            className='bg-purple-600 gap-1 p-[12px] flex text-sm rounded-md text-white
+            items-center justify-center pr-[18px] max-sm:pr-3 hover:bg-purple-700'
+        >
             <AddOutlinedIcon sx={{ fontSize: "20px" }} />
             <span className='max-sm:hidden'>New Expense</span>
         </button>

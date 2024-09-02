@@ -4,10 +4,10 @@ import HomeOutlinedIcon  from "@mui/icons-material/HomeMaxOutlined";
 import KeyboardArrowDownOutlined from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ReceiptLongOutlinedIcon  from "@mui/icons-material/ReceiptLongOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { useAppContext } from "@app/AppContext";
+import { useAppContext } from "../AppContext";
 
 export function ExpenseWindow() {
-    const { openExpenseWindowObject: { openExpenseWindow, setOPenExpenseWindow }, } = useAppContext(); 
+    const { openExpenseWindowObject: { openExpenseWindow, setOpenExpenseWindow }, } = useAppContext(); 
     return (
         <div className={`${openExpenseWindow ? "block" : "hidden"} w-[48%] max-sm:w-[82%] z-50 p-3 left-1/2 top-[47%] -translate-y-1/2 -translate-x-1/2 absolute flex flex-col gap-3 border border-slate-50 bg-white rounded-md shadow-md`}>
             <Header />
@@ -24,7 +24,7 @@ export function ExpenseWindow() {
 }
 
 function Header() {
-    const { openExpenseWindowObject: { openExpenseWindow, setOPenExpenseWindow }, } = useAppContext(); 
+    const { openExpenseWindowObject: { openExpenseWindow, setOpenExpenseWindow }, } = useAppContext(); 
     return (
         <div className="flex justify-between items-center pt-7 px-7">
             <div className="flex items-center gap-2">
@@ -38,7 +38,7 @@ function Header() {
             </div>
 
             <CloseOutlinedIcon 
-                onClick={() => setOPenExpenseWindow(false)}
+                onClick={() => setOpenExpenseWindow(false)}
                 sx={{ fontSize: "18px" }}
                 className="text-slate-300 cursor-pointer"
             />
@@ -109,11 +109,11 @@ function WalletSelection() {
 
 
 function Footer() {
-    const { openExpenseWindowObject: { openExpenseWindow, setOPenExpenseWindow }, } = useAppContext();
+    const { openExpenseWindowObject: { openExpenseWindow, setOpenExpenseWindow }, } = useAppContext();
     return (
         <div className="w-full p-[12px] mt-8 mb-4 flex gap-3 justify-end px-7 items-center">
             <button
-                onClick={() => setOPenExpenseWindow(false)} 
+                onClick={() => setOpenExpenseWindow(false)} 
                 className="border border-slate-200 text-slate-400 text-[13px] p-2 px-6 rounded-md hover:border-slate-300 transition-all"
             >
                 Cancel
