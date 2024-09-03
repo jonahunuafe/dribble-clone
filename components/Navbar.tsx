@@ -2,8 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { NavLinks } from '@/constants';
 import React from 'react'
+import AuthProviders from './AuthProviders';
 
 const Navbar = () => {
+  const session = {}
   return (
     <nav className='flexBetween navbar'>
       <div className='flex-1 flexStart gap-10'>
@@ -22,6 +24,20 @@ const Navbar = () => {
             </Link>
           ))}
         </ul>
+      </div>
+
+      <div className='flexCenter gap-4'>
+        {session ? (
+          <>
+            UserPhoto
+
+            <Link href='/create-project'>
+              Share your work
+            </Link>
+          </>
+        ) : (
+          <AuthProviders />
+        )}
       </div>
     </nav>
   )
