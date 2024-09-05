@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider";
 
 import { cn } from "@/lib/utils";
 
@@ -24,7 +25,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn("min-h-screen bg-dark-300 font-sans antialiased", fontSans.variable)}>
         <main>
-          {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          >
+            {children}
+          </ThemeProvider>
         </main>
       </body>
     </html>
