@@ -28,7 +28,17 @@ interface CustomProps {
   renderSkeleton?: (field: any) => React.ReactNode   
 }
 
-const CustomFormField = ({ control, fieldType, name, label }: CustomProps) => {
+const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
+  return (
+    <Input
+      type='text'
+      placeholder='Jonah'
+    />
+  )
+}
+
+const CustomFormField = (props: CustomProps) => {
+  const { control, fieldType, name, label } = props;
   return (
     <FormField
       control={control}
@@ -38,9 +48,19 @@ const CustomFormField = ({ control, fieldType, name, label }: CustomProps) => {
          {fieldType !== FormFieldType.CHECKBOX && label && (
           <FormLabel>{label}</FormLabel>
          )}
+
+          <RenderField 
+            field={field}
+            props={props}
+          />
+
+          <FormMessage 
+            
+          />
+
         </FormItem>
       )}
-        />
+      />
   )
 }
 
