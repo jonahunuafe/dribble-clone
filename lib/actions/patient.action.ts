@@ -39,4 +39,4 @@ export const getUser = async(userId: string) => {
   }
 }
 
-// undefined on line 7 means we are skipping the password a we don't have it.
+// undefined on line 14 means we are skipping the password a we don't have it.
