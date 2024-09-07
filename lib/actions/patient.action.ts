@@ -29,4 +29,14 @@ export const createUser = async(user: CreateUserParams) => {
   }
 }
 
+export const getUser = async(userId: string) => {
+  try {
+    const user = await users.get(userId)
+
+    return parseStringify(user)
+  } catch(error) {
+    console.log(error)
+  }
+}
+
 // undefined on line 7 means we are skipping the password a we don't have it.
