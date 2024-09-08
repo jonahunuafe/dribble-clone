@@ -11,10 +11,9 @@ import { UserFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patient.action"
 import { FormFieldType } from "./PatientForm"
-import { RadioGroup } from "@radix-ui/react-radio-group"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
 import { GenderOptions } from "@/constants"
-import { RadioGroupItem } from "@radix-ui/react-radio-group"
-import { Label } from "@radix-ui/react-label"
 
 
 const RegisterForm = ({ user }: {user: User}) => {
@@ -112,8 +111,8 @@ const RegisterForm = ({ user }: {user: User}) => {
                   onValueChange={field.onChange}
                   defaultValue={field.value}
                 >
-                  {GenderOptions.map((option, i) => (
-                    <div key={option + i} className="radio-group">
+                  {GenderOptions.map((option) => (
+                    <div key={option} className="radio-group">
                       <RadioGroupItem value={option} id={option} />
                       <Label htmlFor={option} className="cursor-pointer">
                         {option}

@@ -18,7 +18,6 @@ import PhoneInput from 'react-phone-number-input'
 import { E164Number } from "libphonenumber-js/core"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { MdDateRange } from "react-icons/md";
 
 interface CustomProps {
   control: Control<any>,
@@ -68,7 +67,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             placeholder={placeholder}
             international
             withCountryCallingCode
-            value={field.value}
+            value={field.value as E164Number | undefined}
             onChange={field.onChange}
             className='input-phone'
           />
@@ -76,16 +75,13 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       )
     case FormFieldType.DATE_PICKER: 
       return (
-        <div className='flex rounded-md items-center border border-dark-500 bg-dark-400'>
-          {/* <Image 
-            src='/assets/icons/calender.svg'
+        <div className='flex rounded-md border border-dark-500 bg-dark-400'>
+          <Image
+            src="/assets/icons/calendar.svg"
             height={24}
             width={24}
-            alt='calender'
-            className='ml-2'
-          /> */}
-          <MdDateRange 
-            className='text-white ml-2 text-4xl'
+            alt="user"
+            className="ml-2"
           />
           <FormControl>
             <DatePicker 
