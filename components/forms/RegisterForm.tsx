@@ -11,6 +11,7 @@ import { UserFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patient.action"
 import { FormFieldType } from "./PatientForm"
+import { RadioGroup } from "@radix-ui/react-radio-group"
 
 const RegisterForm = ({ user }: {user: User}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -102,8 +103,12 @@ const RegisterForm = ({ user }: {user: User}) => {
             label="Gender"
             renderSkeleton={(field) => {
               <FormControl>
-                <RadioGroup>
-                  
+                <RadioGroup 
+                  className="flex h-11 xl:justify-between" 
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                    
                 </RadioGroup>
               </FormControl>
             }}
