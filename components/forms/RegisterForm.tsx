@@ -150,7 +150,23 @@ const RegisterForm = ({ user }: {user: User}) => {
         </div>
 
         <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+              fieldType={FormFieldType.INPUT} 
+              control={form.control}
+              name="emergencyContactName"
+              label="Emergency contact name"
+              placeholder="Guardian's name"
+              iconSrc="/assets/icons/email.svg"
+              iconAlt="email"
+            />
 
+            <CustomFormField
+              fieldType={FormFieldType.PHONE_INPUT} 
+              control={form.control}
+              name="emergencyContactNumber"
+              label="Emergency contact number"
+              placeholder="(+234)-813-625-0050"
+            />
         </div>
 
         <div className="flex flex-col gap-6 xl:flex-row">
