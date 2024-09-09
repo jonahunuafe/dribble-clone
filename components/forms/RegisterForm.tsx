@@ -13,7 +13,9 @@ import { createUser } from "@/lib/actions/patient.action"
 import { FormFieldType } from "./PatientForm"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
-import { GenderOptions } from "@/constants"
+import { Doctors, GenderOptions } from "@/constants"
+import { SelectItem } from "@radix-ui/react-select"
+import Image from "next/image"
 
 
 const RegisterForm = ({ user }: {user: User}) => {
@@ -174,7 +176,20 @@ const RegisterForm = ({ user }: {user: User}) => {
           label="Primary Physician"
           placeholder="Select a Physician"
         >
-          
+          {Doctors.map((doctor) => (
+            <SelectItem key={doctor.name} value={doctor.name}>
+              <div className="flex cursor-pointer items-center gap-2 ">
+                <Image 
+                  src={doctor.image}
+                  width={32}
+                  height={32}
+                  alt={doctor.name}
+                  className="rounded-full border-dark-500"
+                />
+                <p>{doctor.name}</p>
+              </div>
+            </SelectItem>
+          ))}
         </CustomFormField>
 
         <div className="flex flex-col gap-6 xl:flex-row">
