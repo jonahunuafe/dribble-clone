@@ -125,12 +125,6 @@ const RegisterForm = ({ user }: {user: User}) => {
           />
         </div>
 
-        {/* <section className="space-y-6">
-          <div className="mb-9 space-y-1">
-            <h2 className="sub-header">Medical Infomaton</h2>
-          </div>
-        </section> */}
-
         <div className="flex flex-col gap-6 xl:flex-row">
           <CustomFormField
               fieldType={FormFieldType.INPUT} 
@@ -141,7 +135,7 @@ const RegisterForm = ({ user }: {user: User}) => {
             />
 
             <CustomFormField
-              fieldType={FormFieldType.PHONE_INPUT} 
+              fieldType={FormFieldType.INPUT} 
               control={form.control}
               name="occupation"
               label="Occupation"
@@ -156,8 +150,6 @@ const RegisterForm = ({ user }: {user: User}) => {
               name="emergencyContactName"
               label="Emergency contact name"
               placeholder="Guardian's name"
-              iconSrc="/assets/icons/email.svg"
-              iconAlt="email"
             />
 
             <CustomFormField
@@ -168,6 +160,22 @@ const RegisterForm = ({ user }: {user: User}) => {
               placeholder="(+234)-813-625-0050"
             />
         </div>
+        
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Medical Infomaton</h2>
+          </div>
+        </section>
+
+        <CustomFormField
+          fieldType={FormFieldType.SELECT} 
+          control={form.control}
+          name="primaryPhysician"
+          label="Primary Physician"
+          placeholder="Select a Physician"
+        >
+          
+        </CustomFormField>
 
         <div className="flex flex-col gap-6 xl:flex-row">
 
