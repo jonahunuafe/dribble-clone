@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label"
 import { Doctors, GenderOptions, IdentificationTypes } from "@/constants"
 import { SelectItem } from "@/components/ui/select"
 import Image from "next/image"
-import FileUploader from "../FileUploader"
+import {FileUploader} from "../FileUploader"
 
 
 const RegisterForm = ({ user }: {user: User}) => {
