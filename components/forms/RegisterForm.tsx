@@ -13,8 +13,8 @@ import { createUser } from "@/lib/actions/patient.action"
 import { FormFieldType } from "./PatientForm"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
-import { Doctors, GenderOptions } from "@/constants"
-import { SelectItem } from "@radix-ui/react-select"
+import { Doctors, GenderOptions, IdentificationTypes } from "@/constants"
+import { SelectItem } from "@/components/ui/select"
 import Image from "next/image"
 
 
@@ -255,25 +255,24 @@ const RegisterForm = ({ user }: {user: User}) => {
         <CustomFormField
           fieldType={FormFieldType.SELECT} 
           control={form.control}
-          name="primaryPhysician"
-          label="Primary Physician"
-          placeholder="Select a Physician"
+          name="identificationType"
+          label="Identification type"
+          placeholder="Select an identification type"
         >
-          {Doctors.map((doctor) => (
-            <SelectItem key={doctor.name} value={doctor.name}>
-              <div className="flex cursor-pointer items-center gap-2 ">
-                <Image 
-                  src={doctor.image}
-                  width={32}
-                  height={32}
-                  alt={doctor.name}
-                  className="rounded-full border-dark-500"
-                />
-                <p>{doctor.name}</p>
-              </div>
+          {IdentificationTypes.map((type) => (
+            <SelectItem key={type} value={type}>
+             {type}
             </SelectItem>
           ))}
         </CustomFormField>
+
+        <CustomFormField
+          fieldType={FormFieldType.INPUT} 
+          control={form.control}
+          name="identificationNumber"
+          label="Identification number"
+          placeholder="a-123b45-457"
+        />
 
         <SubmitButton isLoading={isLoading}>
           Get Started
