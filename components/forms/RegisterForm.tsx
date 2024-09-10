@@ -228,6 +228,24 @@ const RegisterForm = ({ user }: {user: User}) => {
           />
         </div>
 
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            fieldType={FormFieldType.TEXTAREA} 
+            control={form.control}
+            name="familyMedicalHistory"
+            label="Family medical history" 
+            placeholder="Mother had a fever, Father had rheumatism"
+          />
+
+          <CustomFormField
+            fieldType={FormFieldType.TEXTAREA} 
+            control={form.control}
+            name="pastMedicalHistory"
+            label="Past medical history"
+            placeholder="Appendectomy, Tonsillectomy"
+          />
+        </div>
+
         
 
         <SubmitButton isLoading={isLoading}>
