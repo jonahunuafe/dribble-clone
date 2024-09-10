@@ -152,15 +152,15 @@ const RegisterForm = ({ user }: {user: User}) => {
               name="emergencyContactName"
               label="Emergency contact name"
               placeholder="Guardian's name"
-            />
+          />
 
-            <CustomFormField
-              fieldType={FormFieldType.PHONE_INPUT} 
-              control={form.control}
-              name="emergencyContactNumber"
-              label="Emergency contact number"
-              placeholder="(+234)-813-625-0050"
-            />
+          <CustomFormField
+            fieldType={FormFieldType.PHONE_INPUT} 
+            control={form.control}
+            name="emergencyContactNumber"
+            label="Emergency contact number"
+            placeholder="(+234)-813-625-0050"
+          />
         </div>
         
         <section className="space-y-6">
@@ -193,7 +193,21 @@ const RegisterForm = ({ user }: {user: User}) => {
         </CustomFormField>
 
         <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            fieldType={FormFieldType.INPUT} 
+            control={form.control}
+            name="insuranceProvider"
+            label="Insurance provider"
+            placeholder="BlueCross BlueShield"
+          />
 
+          <CustomFormField
+            fieldType={FormFieldType.INPUT} 
+            control={form.control}
+            name="insurancePolicyNumber"
+            label="Insurance policy number"
+            placeholder="aed-4567Ed4"
+          />
         </div>
 
         <SubmitButton isLoading={isLoading}>
