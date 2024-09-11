@@ -126,6 +126,10 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       )
     case FormFieldType.SKELETON: 
       return renderSkeleton ? renderSkeleton(field) : null
+    case FormFieldType.CHECKBOX:
+      <div className='flex items-center'>
+        
+      </div>
     default: 
     break;
   }
