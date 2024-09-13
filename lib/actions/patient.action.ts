@@ -58,7 +58,7 @@ export const registerPatient = async({ identificationDocument, ...patient }: Reg
       PATIENT_COLLECTION_ID!,
       ID.unique(),
       {
-        identificationDocument: file?.$id || null,
+        identificationDocumentId: file?.$id || null,
         identificationDocumentUrl: `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file?.$id}/view?project=${PROJECT_ID}`,
         ...patient
       }

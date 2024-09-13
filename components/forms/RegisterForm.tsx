@@ -7,9 +7,9 @@ import { Form, FormControl } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { useState } from "react"
-import { PatientFormValidation, UserFormValidation } from "@/lib/validation"
+import { PatientFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
-import { createUser } from "@/lib/actions/patient.action"
+import { registerPatient } from "@/lib/actions/patient.action"
 import { FormFieldType } from "./PatientForm"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
@@ -26,6 +26,7 @@ const RegisterForm = ({ user }: {user: User}) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof PatientFormValidation>>({
     resolver: zodResolver(PatientFormValidation),
+    // @ts-ignore
     defaultValues: {
       ...PatientFormDefaultValues,
       name: "",
@@ -60,6 +61,7 @@ const RegisterForm = ({ user }: {user: User}) => {
         identificationDocument: formData
       }
 
+      // @ts-ignore
       const patient = await registerPatient(patientData)
 
       if(patient) router.push(`/patients/${user.$id}/new-appointment`)
