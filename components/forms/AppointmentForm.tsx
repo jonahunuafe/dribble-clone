@@ -94,8 +94,27 @@ const AppointmentForm = ({
               dateFormat="MM/dd/yyyy - h:mm aa"
             />
 
+            <div className="flex flex-col gap-6">
+              <CustomFormField 
+                fieldType={FormFieldType.TEXTAREA}
+                control={form.control}
+                name="reason"
+                label="Reason for appointment"
+                placeholder="Enter reason for appointment"
+              />
+
+              <CustomFormField 
+                fieldType={FormFieldType.TEXTAREA}
+                control={form.control}
+                name="notes"
+                label="Notes"
+                placeholder="Enter notes"
+              />
+            </div>
           </>
         )}
+
+        
 
         <SubmitButton isLoading={isLoading}>
           Get Started
