@@ -70,4 +70,19 @@ export const registerPatient = async({ identificationDocument, ...patient }: Reg
   }
 }
 
+// This server action will return a patient based on the userId
+export const getPatient = async(userId: string) => {
+  try {
+    const patients = await databases.listDocuments(
+      DATABASE_ID!,
+      PATIENT_COLLECTION_ID!,
+      [Query.equal('userId', userId)]
+    )
+
+    return parseStringify(patients.documents[0])
+  } catch(error) {
+    console.log(error)
+  }
+}
+
 // undefined on line 14 means we are skipping the password a we don't have it.

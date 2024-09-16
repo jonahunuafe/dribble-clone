@@ -1,9 +1,11 @@
-import PatientForm from '@/components/forms/PatientForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react'
+import AppointmentForm from '@/components/forms/AppointmentForm';
+import { getPatient } from '@/lib/actions/patient.action';
 
-const NewAppointment = () => {
+const NewAppointment = async({ params: {userId} }: SearchParamProps) => {
+  const patient = await getPatient(userId)
   return (
     <div className='flex h-screen max-h-screen'>
       <section className="remove-scrollbar container my-auto">
@@ -16,7 +18,10 @@ const NewAppointment = () => {
             className='mb-12 h-10 w-fit'
           />
 
-          {/* <PatientForm /> */}
+          <AppointmentForm 
+            type='create'
+            userId={userId}
+          />
 
           <p className='justify-items-end text-dark-600 xl:text-left'>
             &copy; 2024 CarePulse
