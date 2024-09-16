@@ -21,6 +21,7 @@ const NewAppointment = async({ params: {userId} }: SearchParamProps) => {
           <AppointmentForm 
             type='create'
             userId={userId}
+            patientId={patient.$id}
           />
 
           <p className='justify-items-end text-dark-600 xl:text-left'>
