@@ -19,7 +19,7 @@ const AppointmentForm = ({
   userId, patientId, type }: {
     userId: string;
     patientId: string;
-    type: "create" | "cancel";
+    type: "create" | "cancel" | "schedule";
   }
 ) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -50,6 +50,19 @@ const AppointmentForm = ({
     } catch(error) {
       console.log(error)
     }
+  }
+
+  let buttonLabel;
+
+  switch(type) {
+    case "cancel":
+      buttonLabel = "Cancel Appointment"
+    break;
+    case "create":
+      buttonLabel = "Create Appointment"
+    break;
+    case "schedule":
+      buttonLabel = "Schedule Appointment"
   }
 
   return (
@@ -114,10 +127,21 @@ const AppointmentForm = ({
           </>
         )}
 
-        
+        {type === "cancel" && (
+          <CustomFormField 
+            fieldType={FormFieldType.TEXTAREA}
+            control={form.control}
+            name="cancellationReason"
+            label="Reason for cancellation"
+            placeholder="Enter reason for cancellation"
+          />
+        )}
 
-        <SubmitButton isLoading={isLoading}>
-          Get Started
+        <SubmitButton 
+          isLoading={isLoading} 
+          className={`${type === "cancel" ? "shad-danger-btn" : "shad-primary-btn"} w-full`}
+        >
+          {buttonLabel}
         </SubmitButton>
       </form>
     </Form>
