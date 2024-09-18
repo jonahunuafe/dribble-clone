@@ -3,9 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react'
 
-const Home = () => {
+const Home = ({ searchParams }: SearchParamProps) => {
+  const isAdmin = searchParams.admin === 'true';
+
   return (
     <div className='flex h-screen max-h-screen'>
+      {/* TODO: OTP VERIFICATION | PasskeyModal */}
       <section className="remove-scrollbar container my-auto">
         <div className='sub-container max-w-[496px]'>
           <Image 
