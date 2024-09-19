@@ -48,6 +48,8 @@ const Admin = async() => {
             icon="/assets/icons/cancelled.svg"
           />
         </section>
+
+        
       </main>
     </div>
   )
