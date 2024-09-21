@@ -15,12 +15,15 @@ import { Doctors } from "@/constants"
 import Image from "next/image"
 import { SelectItem } from "@/components/ui/select"
 import { createAppointment } from "@/lib/actions/appointment.actions"
+import { Appointment } from "@/types/appwrite.types"
 
 const AppointmentForm = ({ 
-  userId, patientId, type }: {
+  userId, patientId, type, appointment, setOpen }: {
     userId: string;
     patientId: string;
     type: "create" | "cancel" | "schedule";
+    appointment?: Appointment;
+    setOpen: (open: boolean) => void;
   }
 ) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -77,6 +80,20 @@ const AppointmentForm = ({
           form.reset();
           router.push(`/patients/${userId}/new-appointment/success?appointmentId=${appointment.$id}`)
         }
+      } else {
+        const appointmentToUpdate = {
+          userId,
+          appointmentId: appointment?.$id,
+          appointment: {
+            primaryPhysician: values?.primaryPhysician,
+            schedule: new Date(values?.schedule),
+            status: status as Status,
+            cancellationReason: values?.cancellationReason,
+          },
+          type
+        }
+
+        const updatedAppointmnet = await updateAppointment(appointmentToUpdate)
       }
 
     } catch(error) {
