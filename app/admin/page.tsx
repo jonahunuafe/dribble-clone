@@ -4,7 +4,7 @@ import { getRecentAppointmentList } from '@/lib/actions/appointment.actions'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { columns, Payment } from '@/components/table/Columns'
+import { columns } from '@/components/table/Columns'
 
 
 
@@ -35,7 +35,7 @@ const Admin = async() => {
         <section className="admin-stat">
           <StatCard 
             type="appointments"
-            count={appointments.scheduledCount}
+            count={appointments.sheduledCount}
             label="Scheduled appointments"
             icon="/assets/icons/appointments.svg"
           />

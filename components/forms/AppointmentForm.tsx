@@ -14,7 +14,7 @@ import { FormFieldType } from "./PatientForm"
 import { Doctors } from "@/constants"
 import Image from "next/image"
 import { SelectItem } from "@/components/ui/select"
-import { createAppointment } from "@/lib/actions/appointment.actions"
+import { createAppointment, updateAppointment } from "@/lib/actions/appointment.actions"
 import { Appointment } from "@/types/appwrite.types"
 
 const AppointmentForm = ({ 
@@ -35,11 +35,11 @@ const AppointmentForm = ({
   const form = useForm<z.infer<typeof AppointmentFormValidation>>({
     resolver: zodResolver(AppointmentFormValidation),
     defaultValues: {
-      primaryPhysician: "",
-      schedule: new Date(),
-      reason: "",
-      note: "",
-      cancellationReason: ""
+      primaryPhysician: appointment ? appointment.primaryPhysician : "",
+      schedule: appointment ? new Date(appointment.schedule) : new Date(),
+      reason: appointment ? appointment.reason : "",
+      note: appointment ? appointment.note : "",
+      cancellationReason: appointment && appointment?.cancellationReason || ""
     },
   })
 
@@ -83,7 +83,7 @@ const AppointmentForm = ({
       } else {
         const appointmentToUpdate = {
           userId,
-          appointmentId: appointment?.$id,
+          appointmentId: appointment?.$id!,
           appointment: {
             primaryPhysician: values?.primaryPhysician,
             schedule: new Date(values?.schedule),
@@ -93,7 +93,12 @@ const AppointmentForm = ({
           type
         }
 
-        const updatedAppointmnet = await updateAppointment(appointmentToUpdate)
+        const updatedAppointment = await updateAppointment(appointmentToUpdate);
+
+        if(updatedAppointment) {
+          setOpen && setOpen(false);
+          form.reset();
+        }
       }
 
     } catch(error) {
@@ -117,10 +122,10 @@ const AppointmentForm = ({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
-        <section className="mb-12 space-y-4">
+        { type === "create" && <section className="mb-12 space-y-4">
           <h1 className="header">New Appointment</h1>
           <p className="text-dark-700">Request a new appointment in 10 seconds</p>
-        </section>
+        </section> }
 
         {type !== "cancel" && (
           <>
