@@ -38,6 +38,7 @@ const AppointmentModal = ({ type, patientId, userId, appointment }: {
         <AppointmentForm
           userId={userId}
           patientId={patientId}
+          type={type}
           appointment={appointment}
           setOpen={setOpen}
         />
