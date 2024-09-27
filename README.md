@@ -13,19 +13,19 @@
 A healthcare patient management application that allows patients to easily register, book, and manage their appointments with doctors, featuring administrative tools for scheduling, confirming, and canceling appointments all built using Next.js.
 
 # Features
-✔ ** Register as a Patient: **
+🚀 **Register as a Patient:** Users can sign up and create a personal profile as a patient.
 
-✔ ** Book a New Appointment with Doctor: **
+🚀 **Book a New Appointment with Doctor:**
 
-✔ ** Manage Appointments on Admin Side: **
+🚀 **Manage Appointments on Admin Side:**
 
-✔ ** Confirm/Schedule Appointment from Admin Side: **
+🚀 **Confirm/Schedule Appointment from Admin Side:**
 
-✔ ** Cancel Appointment from Admin Side: **
+🚀 **Cancel Appointment from Admin Side:**
 
-✔ ** Complete Responsiveness: **
+🚀 **Complete Responsiveness:**
 
-✔ ** File Upload Using Appwrite Storage: **
+🚀 **File Upload Using Appwrite Storage:**
 
 
 
