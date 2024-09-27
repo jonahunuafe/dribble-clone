@@ -7,7 +7,6 @@
 
   <Image 
     src="./public/assets/images/carepulse-admin.png"
-    className="mb-12"
   />
 </div>
 
@@ -19,7 +18,7 @@
 - [Tech Stack](#tech-stack)
 
 ## Introduction
-A healthcare patient management application that allows patients to easily register, book, and manage their appointments with doctors, featuring administrative tools for scheduling, confirming, and canceling appointments all built using Next.js.
+A healthcare patient management application that allows patients to easily register, book, and manage their appointments with doctors, featuring administrative tools for scheduling, confirming, and cancelling appointments all built using Next.js.
 
 ## Features
 🚀 **Register as a Patient:** Users can sign up and create a personal profile as a patient.
