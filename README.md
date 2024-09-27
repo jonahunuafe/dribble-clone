@@ -1,6 +1,6 @@
 # A HealthCare Management System
 
-<div>
+<div className="flex flex-col gap-5">
   <Image 
     src="./public/assets/images/carepulse-homepage.png"
   />
