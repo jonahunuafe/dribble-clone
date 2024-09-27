@@ -1,7 +1,10 @@
 # A HealthCare Management System
 
-![Home-Page](./public/assets/images/carepulse-homepage.png)
-![Admin-Page](./public/assets/images/carepulse-admin.png)
+<div>
+  <Image 
+    src="./public/assets/images/carepulse-homepage.png"
+  />
+</div>
 
 ## Table of Contents
 - [Introduction](#introduction)
