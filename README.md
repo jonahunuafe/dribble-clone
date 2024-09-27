@@ -1,12 +1,13 @@
 # A HealthCare Management System
 
-<div className="flex flex-col gap-5">
+<div>
   <Image 
     src="./public/assets/images/carepulse-homepage.png"
   />
 
   <Image 
     src="./public/assets/images/carepulse-admin.png"
+    className="mb-12"
   />
 </div>
 
